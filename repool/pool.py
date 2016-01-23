@@ -16,10 +16,11 @@
 # along with Repool.  If not, see <http://www.gnu.org/licenses/>.
 
 import rethinkdb as r
-from queue import Queue
 import time
 import logging
 from threading import Lock, Thread, Event
+from Queue import Queue  # Python 2
+
 
 logger = logging.getLogger(__name__)
 
@@ -88,7 +89,7 @@ class ConnectionPool(object):
         """
         :return:
         """
-        logger.debug("Opening new connection to rethinkdb with args=%s" % self._conn_args)
+        print("Opening new connection to rethinkdb with args=%s" % self._conn_args)
         return ConnectionWrapper(self._pool, **self._conn_args)
 
     def acquire(self, timeout=None):
@@ -98,6 +99,7 @@ class ConnectionPool(object):
         :returns: Returns a RethinkDB connection
         :raises Empty: No resources are available before timeout.
         """
+        print self._pool.qsize(), self._pool.empty()
         self._pool_lock.acquire()
         if timeout is None:
             conn_wrapper = self._pool.get_nowait()
@@ -133,7 +135,7 @@ class ConnectionPool(object):
         self._pool = None
 
     def _cleanup(self, stop_event, timeout):
-        logger.debug("Starting cleanup thread")
+        print("Starting cleanup thread")
         while not stop_event.is_set():
             import time
             stop_event.wait(timeout)

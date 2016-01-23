@@ -20,7 +20,7 @@ from setuptools import setup, find_packages
 
 setup(
   name = "repool",
-  version = "0.2",
+  version = "0.4",
   description="Connection pool for rethinkdb",
   author="Nicolas Jouanin",
   author_email='nicolas.jouanin@gmail.com',
@@ -33,7 +33,7 @@ setup(
     'Intended Audience :: Developers',
     'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
     'Operating System :: POSIX :: Linux',
-    'Programming Language :: Python :: 3.3',
+    'Programming Language :: Python :: 2.7, 3.3',
     'Topic :: Database'
   ]
 )
