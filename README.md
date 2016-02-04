@@ -9,9 +9,9 @@ Internally, `repool` uses the Python [Queue](https://docs.python.org/3.4/library
 Installation
 ------------
 
-`repool` is available as a python library on [Pypi](https://pypi.python.org/pypi/repool). Installation is very simple using pip :
+Original `repool` is available as a python library on [Pypi](https://pypi.python.org/pypi/repool). Installation is very simple using pip, but this version is only with the folowing command :
 
-    $ pip install repool
+    $ pip install -e git+https://github.com/berlotto/repool.git#egg=repool
 
 This will install `repool` as well as `rethinkdb` dependency.
 
